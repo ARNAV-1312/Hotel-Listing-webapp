@@ -24,7 +24,7 @@ module.exports.showListing= async (req, res) => {
         req.flash("error", "The requested listing doesn't exist!");
         res.redirect("/listings")
     }
-    else { res.render("listings/show.ejs", { listing }) }
+    else { res.render("listings/show.ejs", { listing,mapToken:process.env.MAP_TOKEN }) }
 };
 module.exports.createListing= async (req, res) => {
         let response= await geocodingClient.forwardGeocode({
